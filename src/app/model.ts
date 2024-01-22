@@ -15,3 +15,9 @@ export class StudentAttendance {
     Date:string = "";
     AttendanceStatus:boolean = false;
 }
+export interface User {
+    username: string;
+    password: string;
+    role: string;
+  }
+  

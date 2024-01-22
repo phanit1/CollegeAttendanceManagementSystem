@@ -1,0 +1,13 @@
+<div>
+    <input type="text" [(ngModel)]="selectedpinnumber" placeholder="Enter Student Pin Number"/><br><br>
+    <button type="submit" (click)="getattendancereport()">Submit</button><br><br>
+    <div class="card text-white bg-secondary mb-3" style="width: 18rem;" *ngIf="attendancereport">
+      <div class="card-body">
+        <h5 class="card-title">Attendance Report</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{attendancereport.PinNumber}}</h6>
+        <p class="card-text">Total Working Days: {{attendancereport.DaysTotal}}</p>
+        <p class="card-text">Days Present: {{attendancereport.DaysPresent}}</p>
+        <p class="card-text">Days Absent: {{attendancereport.DaysAbsent}}</p>
+      </div>
+    </div>
+  </div>

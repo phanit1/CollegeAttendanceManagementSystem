@@ -1,0 +1,28 @@
+<!-- <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" ngModel required>
+  
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" ngModel required>
+  
+    <button type="submit">Login</button>
+  </form>
+   -->
+<div class="container">
+    <h2>College Attendance Login Form</h2>
+
+<form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" ngModel required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" ngModel required>
+
+    <button type="submit">Login</button>
+</form>
+
+<div class="register-link">
+    <p>Don't have an account? <a href="/register">Register here</a></p>
+</div>
+
+</div>

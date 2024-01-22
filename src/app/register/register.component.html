@@ -1,0 +1,61 @@
+<!-- register.component.html -->
+<!-- <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" ngModel required>
+  
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" ngModel required>
+  
+    <label for="role">Role:</label>
+    <input type="text" id="role" name="role" ngModel required>
+  
+    <button type="submit">Register</button>
+  </form>
+   -->
+
+<div class="container">
+    <h2>College Attendance Registration Form</h2>
+    <!-- <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" ngModel required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" ngModel required>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <div class="register-link">
+        <p>Don't have an account? <a href="#" onclick="showRegisterForm()">Register here</a></p>
+    </div> -->
+
+    <form id="registerForm" #registerForm="ngForm">
+        <!-- <label for="newUsername">Username:</label>
+        <input type="text" id="newUsername" name="newUsername" required> -->
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" ngModel required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" ngModel required>
+        <!-- <label for="newPassword">Password:</label>
+        <input type="password" id="newPassword" name="newPassword" required> -->
+
+        <label for="role">Role:</label>
+        <select id="role" name="role" required>
+            <option value="admin">Admin</option>
+            <option value="student">Student</option>
+        </select><br><br>
+
+        <button type="submit" (click)="register(registerForm)">Register</button>
+    </form>
+    <div class="register-link">
+        <p>Alreading have an account? <a href="/login">Login here</a></p>
+    </div>
+</div>
+
+<!-- <script>
+    function showRegisterForm() {
+        document.getElementById('loginForm').style.display = 'none';
+        document.getElementById('registerForm').style.display = 'block';
+    }
+</script> -->

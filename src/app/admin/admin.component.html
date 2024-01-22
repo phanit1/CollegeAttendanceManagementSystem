@@ -1,0 +1,92 @@
+<div align="center" class="container">
+    <h1>College Attendance Management System</h1><br>
+    <div style="display: inline;">
+        <form id="dataForm">
+        <label for="department">Department:</label>
+        <select id="department" name="department" [(ngModel)]="selectedDepartment" required>
+            <option value="it">Information Technology</option>
+            <option value="cs">Computer Science Engineering</option>
+            <option value="C">Civil Engineering</option>
+            <option value="M">Mechanical Engineering</option>
+            <option value="EE">EEE</option>
+        </select>
+        <div class ="row">
+            <div class="col sm-6">
+                <label for="year">Year:</label>
+                <select id="year" name="year" [(ngModel)]="selectedYear" required>
+                    <option value="1">First year</option>
+                    <option value="2">Second Year</option>
+                    <option value="3">Third Year</option>
+                </select>
+            </div>
+            <div class="col sm-6">
+                <label for="section">Section:</label>
+                <select id="section" name="section" [(ngModel)]="selectedSection" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
+            </div>
+        </div>
+        
+        
+        <button type="submit" (click)="submitForm()">Submit</button>
+
+    </form>
+
+    </div>
+    <br><br>
+    <!-- <div>
+        <button (click)="submitForm()">Submit</button>
+    </div><br> -->
+    <div *ngIf="studentsdata">
+        <div *ngIf="studentsdata=='No Student Data Found'">
+            <h3>{{studentsdata}}</h3>
+        </div>
+        <div *ngIf="studentsdata!='No Student Data Found'">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <td>Pin Number</td>
+                        <td>Student Name</td>
+                        <td>Mark Attendance</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let student of studentsdata">
+                        <td>{{student.PinNumber}}</td>
+                        <td>{{student.StudentName}}</td>
+                        <td><input type="checkbox" (change)="mark_attendance(student.PinNumber,$event)"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="submit" (click)="sendAttendance()">Submit</button>
+        </div>
+    </div>
+    <br><br>
+    <div>
+        <input type="text" [(ngModel)]="selectpinnumber" placeholder="Enter Student Pin Number" /><br><br>
+        <button type="submit" (click)="generateattendancereport()">Generate Report</button><br><br>
+    </div>
+
+    <!-- <form id="dataForm" onsubmit="return submitData()">
+        <label for="department">Department:</label>
+        <select id="department" name="department" required>
+            <option value="it">IT</option>
+            <option value="cs">CS</option>
+        </select>
+
+        <label for="year">Year:</label>
+        <select id="year" name="year" required>
+            <option value="first">First</option>
+            <option value="second">Second</option>
+        </select>
+
+        <label for="section">Section:</label>
+        <select id="section" name="section" required>
+            <option value="a">A</option>
+            <option value="b">B</option>
+        </select>
+
+        <button type="submit">Submit</button>
+    </form> -->
+</div>
