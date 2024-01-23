@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-student',
@@ -10,6 +12,7 @@ export class StudentComponent {
   serverurl: string = "https://college-attendance-system-backend.vercel.app/"
   attendancereport: any;
 
+  constructor(private authService: AuthService,private router: Router) {}
 
   getattendancereport() {
     let requestOptions: RequestInit = {
@@ -24,5 +27,10 @@ export class StudentComponent {
         this.attendancereport = JSON.parse(result);
       })
       .catch(error => console.log('error', error));
+  }
+  logout() {
+    this.authService.logout();
+    alert("Logging out...")
+    this.router.navigate(['/login']);
   }
 }
