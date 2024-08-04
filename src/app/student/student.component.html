@@ -1,14 +1,26 @@
-<div>
-    <input type="text" [(ngModel)]="selectedpinnumber" placeholder="Enter Student Pin Number"/><br><br>
-    <button type="submit" (click)="getattendancereport()">Submit</button><br><br>
-    <div class="card text-white bg-secondary mb-3" style="width: 18rem;" *ngIf="attendancereport">
+<div align = "center">
+    <h1>Welcome {{sd.StudentName}}</h1><br><br>
+    <div class="container">
+    <div class="card text-white bg-primary mb-3" style="width: 18rem;" *ngIf="sd">
       <div class="card-body">
-        <h5 class="card-title">Attendance Report</h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{attendancereport.PinNumber}}</h6>
+        <h5 class="card-title">Student Details</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Pin Number: {{sd.PinNumber}}</h6>
+        <p class="card-text">CollegeCode: {{sd.CollegeCode}}</p>
+        <p class="card-text">Department: {{sd.Department}}</p>
+        <p class="card-text">Year: {{sd.Year}}</p>
+        <p class="card-text">Section: {{sd.Section}}</p>
+      </div>
+    </div>
+    <div class="card text-white bg-success mb-3" style="width: 18rem;" *ngIf="attendancereport">
+      <div class="card-body">
+        <h5 class="card-title">Attendance Details</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Pin Number: {{attendancereport.PinNumber}}</h6>
         <p class="card-text">Total Working Days: {{attendancereport.DaysTotal}}</p>
         <p class="card-text">Days Present: {{attendancereport.DaysPresent}}</p>
         <p class="card-text">Days Absent: {{attendancereport.DaysAbsent}}</p>
+        <p class="card-text">Attendance Percentage: {{attendancereport.AttendancePercent}}</p>
       </div>
+    </div>
     </div>
     <div>
       <button type="submit" (click)="logout()">Log Out</button><br><br>

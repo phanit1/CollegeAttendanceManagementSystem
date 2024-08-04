@@ -18,7 +18,7 @@ export class AdminComponent {
   selectpinnumber: string = '';
   attendancereport: any;
   studentsdata: any;
-  currentDate:any;
+  currentDate: any;
   attendancestatus: boolean = false;
   studattend: StudentAttendance[] = [];
   serverurl: string = "https://college-attendance-system-backend.vercel.app/"
@@ -27,7 +27,7 @@ export class AdminComponent {
   }
   ngOnInit() {
   }
- 
+
   // getattendancereport() {
   //   let requestOptions: RequestInit = {
   //     method: "GET",
@@ -49,11 +49,11 @@ export class AdminComponent {
       redirect: "follow"
     };
 
-    fetch(this.serverurl+"students/" + this.selectedYear + "/" + this.selectedSection + "/" + this.selectedDepartment, requestOptions)
+    fetch(this.serverurl + "students/" + this.selectedYear + "/" + this.selectedSection + "/" + this.selectedDepartment, requestOptions)
       .then(response => response.text())
       .then(result => {
         // console.log(result);
-        if(result != "No Student Data Found") {
+        if (result != "No Student Data Found") {
           this.studentsdata = JSON.parse(result);
         }
         else {
@@ -66,14 +66,14 @@ export class AdminComponent {
   }
 
   default_attendance() {
-    this.studentsdata.forEach((student:any) => {
+    this.studentsdata.forEach((student: any) => {
       let studattendobj = new StudentAttendance();
       studattendobj.PinNumber = student.PinNumber;
       studattendobj.Date = this.currentDate;
       studattendobj.AttendanceStatus = false;
       this.studattend.push(studattendobj);
     });
-    console.log(this.studattend,"default")
+    console.log(this.studattend, "default")
   }
 
   updateOrAddEntry(data: any[], newEntry: any): any[] {
@@ -105,10 +105,10 @@ export class AdminComponent {
     studattendobj.Date = this.currentDate;
     studattendobj.AttendanceStatus = event.srcElement.checked;
     this.studattend = this.updateOrAddEntry(this.studattend, studattendobj);
-    
+
   }
   sendAttendance() {
-var myHeaders = new Headers();
+    var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
     var raw = JSON.stringify(this.studattend);
@@ -120,7 +120,7 @@ var myHeaders = new Headers();
       redirect: 'follow'
     };
 
-    fetch(this.serverurl+"poststudentsattendance", requestOptions)
+    fetch(this.serverurl + "poststudentsattendance", requestOptions)
       .then(response => response.text())
       .then(result => console.log(result))
       .catch(error => console.log('error', error));

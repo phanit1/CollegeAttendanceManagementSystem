@@ -1,0 +1,16 @@
+/* student.component.css */
+.container {
+    display: flex;
+    justify-content:space-evenly; /* Adjust alignment as needed */
+  }
+  
+  .card {
+    width: 45%; /* Adjust width as needed */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Adjust styles for the cards as needed */
+  

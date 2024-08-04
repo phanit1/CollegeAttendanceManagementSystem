@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { UsernameService } from '../services/username.service';
+
 
 @Component({
   selector: 'app-login', // This selector is necessary for Angular to recognize it as a component
@@ -10,7 +12,7 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(private router: Router, private authService: AuthService, private usernameService: UsernameService) { }
 
   login(loginForm: NgForm) {
     if (loginForm) {
@@ -23,6 +25,9 @@ export class LoginComponent {
             this.router.navigate(['/admin']);
             alert('Logging in as admin');
           } else if (user.role === 'student') {
+            // Set username in UsernameService
+            this.usernameService.setUsername(username);
+            // Navigate to StudentComponent
             this.router.navigate(['/student']);
             alert('Logging in as student');
           } else {
